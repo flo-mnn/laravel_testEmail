@@ -22,6 +22,15 @@
     </head>
     <body class="antialiased">
         <form action="/send-email" method="POST">
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
             @csrf
             <div class="form-group">
               <label>Email address</label>
@@ -33,7 +42,12 @@
             </div>
             <div class="form-group">
               <label>Your subject</label>
-              <input type="text" class="form-control" placeholder="subject" name="subject">
+              <select name="subject_id" id="">
+                @foreach ($subjects as $subject)
+                <option value="{{$subject->id}}">{{$subject->subject}}</option>
+                @endforeach
+              </select>
+              {{-- <input type="text" class="form-control" placeholder="subject" name="subject"> --}}
             </div>
             
             <div class="form-group">
@@ -42,5 +56,10 @@
             </div>
             <button type="submit">send</button>
           </form>
+          <hr>
+          <hr>
+          <div>
+            <a href="/emails/all">all emails see</a>
+          </div>
     </body>
 </html>

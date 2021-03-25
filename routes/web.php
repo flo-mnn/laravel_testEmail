@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MailController;
+use App\Models\Email;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',[
+        'subjects'=> Subject::all(),
+    ]);
 });
-
+Route::get('/emails/all',function(){
+    return view('emails',[
+        'emails'=>Email::all(),
+    ]);
+});
 Route::post("/send-email", [MailController ::class, "sendEmail"]);

@@ -32,6 +32,6 @@ class TestMail extends Mailable
     {
         // return $this->subject($this->details['subject'])->view('email');
         // or 
-        return $this->from($this->details['email'])->view('email');
+        return $this->from($this->details['email'])->subject($this->details['subject'])->view('email');
     }
 }
