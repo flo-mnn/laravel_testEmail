@@ -21,6 +21,15 @@
         </style>
     </head>
     <body class="antialiased">
+      <header style="display: flex; justify-content: space-around; width: 80%">
+        <a href="/emails/all">all emails see</a>
+        <form action="/newsletters/" style="border: solid blue 2px; padding: 5px;" method="POST">
+          @csrf
+          <input type="text" name="email">
+          <button type="submit">Register newsletters</button>
+        </form>
+      </header>
+      <hr>
         <form action="/send-email" method="POST">
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -58,8 +67,5 @@
           </form>
           <hr>
           <hr>
-          <div>
-            <a href="/emails/all">all emails see</a>
-          </div>
     </body>
 </html>
