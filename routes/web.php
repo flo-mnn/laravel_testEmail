@@ -4,6 +4,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterController;
 use App\Models\Email;
 use App\Models\Subject;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,7 @@ Route::get('/emails/all',function(){
 });
 Route::post("/send-email", [MailController ::class, "sendEmail"]);
 Route::resource('newsletters',NewsletterController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -19,6 +19,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body class="antialiased">
       <header style="display: flex; justify-content: space-around; width: 80%">
@@ -28,8 +29,16 @@
           <input type="text" name="email">
           <button type="submit">Register newsletters</button>
         </form>
+        @auth
+          <form action="{{route('logout')}}" method="POST">
+          @csrf
+        <button type="submit" class="link">log out</button></form> 
+        @else
+            <a href="{{route('register')}}" class="text-primary">register as user</a>
+        @endauth
       </header>
       <hr>
+      <h1>contact form</h1>
         <form action="/send-email" method="POST">
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -67,5 +76,7 @@
           </form>
           <hr>
           <hr>
+
+          <script src="{{asset("js/app.js")}}"></script>
     </body>
 </html>
