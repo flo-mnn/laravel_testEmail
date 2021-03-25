@@ -35,12 +35,6 @@ Continuez dans le même projet
 - Faites une page d'inscription
 - A l'inscription on reçoit un mail avec notre nom d'utilisateur, notre email, notre mot de passe et un message de bienvenue.
 
-for mailtrap
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=0bb00ece41f9ab
-MAIL_PASSWORD=6840dbf66ef705
-MAIL_ENCRYPTION=tls
+
 
 NB: pour windows, suivre ce lien pour gmail https://medium.com/@agavitalis/how-to-send-an-email-in-laravel-using-gmail-smtp-server-53d962f01a0c, mais impossible si google avec une double authentification ou si l'antivirus est activé.
